@@ -1,0 +1,20 @@
+:host(.has-footer-row) #footer [part~="row"]:first-of-type{
+    display: none;
+}
+:host(.card-list) {
+    background: transparent;
+    width: 90%;
+    margin: auto;
+    border: none;
+}
+
+:host(.card-list) [part~="cell"]:not(:empty):not([details-cell]) {
+    padding: 0;
+}
+
+:host(.card-list) [part~="row"][selected] [part~="cell"] {
+    background: transparent !important;
+}
+:host(.card-list) [part~="body-cell"] {
+    background: transparent;
+}

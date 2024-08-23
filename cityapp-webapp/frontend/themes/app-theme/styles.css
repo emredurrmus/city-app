@@ -1,0 +1,350 @@
+html {
+    --lumo-border-radius: 0.2em;
+    --menu-item-indentation: calc(var(--lumo-icon-size-s) + var(--lumo-space-l));
+    --detail-drawer-width: 480px;
+}
+
+/* Base style for menu wrapper */
+.menu-wrapper {
+    margin-bottom: var(--lumo-space-s);
+    margin-top: var(--lumo-space-s);
+}
+
+/* Base style for menu items */
+.menu-item {
+    align-items: center;
+    display: flex;
+    font-size: var(--lumo-font-size-m);
+    font-weight: 600;
+    height: var(--lumo-size-l);
+    transition: background-color var(--transition-duration-s);
+}
+
+/* Style for top-level menu items */
+.menu-item:not([level]) {
+    margin-bottom: 1px;
+    background-color: var(--lumo-base-color);
+    box-shadow: var(--lumo-box-shadow-xs);
+}
+
+/* Style for sub items */
+.menu-item[level] {
+    font-size: var(--lumo-font-size-s);
+    font-weight: normal;
+    height: var(--lumo-size-m);
+}
+
+/* Indentation for different levels */
+.menu-item[level="1"] span {
+    font-weight: 500;
+    margin-left: var(--menu-item-indentation);
+}
+
+.menu-item[level="2"] span {
+    font-weight: 400;
+    margin-left: calc(var(--menu-item-indentation) + var(--lumo-space-m));
+}
+
+.menu-item[level="3"] span {
+    font-weight: 300;
+    margin-left: calc(var(--menu-item-indentation) + calc(var(--lumo-space-m) * 2));
+}
+
+/* Hover effect */
+.menu-item:hover {
+    background-color: var(--lumo-primary-color-10pct);
+}
+
+.menu-item-link:hover {
+    text-decoration: none;
+}
+
+/* Active state */
+.menu-item:active {
+    background-color: var(--lumo-contrast-20pct);
+}
+
+/* Link style */
+.menu-item-link {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    overflow: hidden;
+    padding-left: var(--lumo-space-m);
+    padding-right: var(--lumo-space-m);
+}
+
+/* Highlight */
+.menu-item-link[highlight] {
+    background-color: var(--lumo-primary-color);
+    color: var(--lumo-primary-contrast-color);
+}
+
+.menu-item-link:not([highlight]) {
+    color: var(--lumo-body-text-color);
+}
+
+.menu-item-link:not([highlight]) vaadin-icon {
+    color: var(--lumo-tertiary-text-color);
+}
+
+/* Icon */
+.menu-item-link vaadin-icon {
+    height: var(--lumo-icon-size-s);
+    flex-shrink: 0;
+    margin: 0 var(--lumo-space-l) 0 0;
+    transition: margin var(--transition-duration-s);
+    width: var(--lumo-icon-size-s);
+}
+
+/* Text */
+.menu-item-link span {
+    cursor: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+}
+
+/* Expand & collapse */
+.menu-item vaadin-button {
+    color: var(--lumo-secondary-text-color);
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: var(--lumo-space-s);
+}
+
+
+
+.main-content {
+    flex-grow: 1;
+    margin:0;
+    background: var(--lumo-base-color);
+}
+.detail-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 450px;
+    max-width: 700px;
+    border: 0.5px solid #ccc;
+}
+.message-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 450px;
+    max-width: 700px;
+}
+.lang-item {
+    display: flex;
+}
+.lang-item img {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: var(--lumo-space-s);
+}
+
+.lang-item vaadin-icon {
+    width: 16px;
+    height: 16px;
+}
+.content-card {
+    background-color: white;
+    width: 100%;
+    border: 3px gray;
+    border-radius: 25px;
+}
+.content-card:hover {
+    opacity: 1;
+    background-color: lightgray;
+}
+.badge {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.2em calc(0.5em + var(--lumo-border-radius-s) / 4);
+    color: var(--lumo-primary-text-color);
+    background-color: var(--lumo-primary-color-10pct);
+    border-radius: var(--lumo-border-radius-s);
+    font-family: var(--lumo-font-family);
+    font-size: var(--lumo-font-size-s);
+    line-height: 1;
+    font-weight: 600;
+    text-transform: initial;
+    letter-spacing: initial;
+    min-width: calc(var(--lumo-line-height-xs) * 1em + 0.45em);
+    margin-left: var(--lumo-space-s);
+}
+.badge vaadin-icon {
+    width: 16px;
+    margin-right: 6px;
+}
+.red-badge {
+    color: white;
+    background-color: rgb(215, 58, 74);
+}
+.notification-alert {
+    border-radius: 12px !important;
+    font-size: 10px !important;
+    position: absolute;
+    top: 0;
+    right: 0px;
+}
+.detail-drawer:not([open]) {
+    margin-right: calc(var(--detail-drawer-width) * -1);
+    display: none;
+}
+.title {
+    position: absolute;
+    right: 50%;
+    margin-bottom: 5px;
+    color: gray;
+    border: black;
+    font-size: 50px;
+    text-align: center;
+}
+.button-right {
+    margin-left: auto !important;
+}
+.right-aligned {
+    position: absolute;
+    right: 30px;
+}
+.login-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images/app-bg.jpg);
+    background-size: cover;
+}
+.register-form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    left: 600px;
+    padding: 2%;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid lightskyblue;
+}
+.top-toolbar {
+    position: relative;
+    font-size: var(--lumo-font-size-s);
+    right: 20px;
+    align-items: center;
+}
+.image {
+    border: darkgray;
+    width: 200px;
+    height: 200px;
+}
+.image-overlay {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.image-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.image-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image-overlay:hover::after {
+    opacity: 1;
+}
+.image-card {
+    width: 150px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* post */
+
+.post-card {
+    background-color: var(--lumo-base-color);
+    border-radius: var(--lumo-border-radius);
+    border: 1px solid var(--lumo-contrast-20pct);
+    padding-bottom: 0;
+    margin-bottom: var(--lumo-space-s);
+}
+.notification-card {
+    background-color: var(--lumo-base-color);
+    border-radius: var(--lumo-border-radius);
+    border: 1px solid var(--lumo-contrast-20pct);
+    padding-bottom: 0;
+    font-size: 15px;
+    margin-bottom: var(--lumo-space-s);
+}
+
+.post-date {
+    color: var(--lumo-contrast-40pct);
+}
+
+/* notification */
+
+/* Your existing CSS */
+.notification-detail-drawer {
+    width: 400px;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: var(--lumo-box-shadow-m);
+    margin-left: 0;
+}
+.notification-detail-drawer:not([open]) {
+    margin-right: -400px;
+    display: none;
+}
+.notification-context {
+    width: 500px;
+    height: 500px;
+}
+.notification-image {
+    width: 30px;
+    height: 30px;
+}
+.cancel-button {
+    margin-right: auto !important;
+}
+.confirm-button {
+    margin-left: auto !important;
+}
+.delete-button {
+    margin-bottom: auto !important;
+    margin-left: auto !important;
+}
+
+/* Like button */
+
+.like-button {
+    transition: background-color 0.5s ease;
+}
+
+.like-button:hover {
+    background-color: #e0e0e0;
+}
+
+.like-button.active {
+    background-color: #007bff;
+    color: white;
+}
