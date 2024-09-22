@@ -1,1 +1,1 @@
-# java-vaadin-webapp
+# Spring Boot - Vaadin - JS
